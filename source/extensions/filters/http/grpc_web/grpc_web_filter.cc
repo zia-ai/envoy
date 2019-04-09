@@ -193,7 +193,7 @@ Http::FilterTrailersStatus GrpcWebFilter::encodeTrailers(Http::HeaderMap& traile
       [](const Http::HeaderEntry& header, void* context) -> Http::HeaderMap::Iterate {
         Buffer::Instance* temp = static_cast<Buffer::Instance*>(context);
         temp->add(header.key().c_str(), header.key().size());
-        temp->add(":");
+        temp->add(": ");
         temp->add(header.value().c_str(), header.value().size());
         temp->add("\r\n");
         return Http::HeaderMap::Iterate::Continue;
