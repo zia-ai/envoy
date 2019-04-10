@@ -7,6 +7,7 @@ RUN apt-get install -y ./bazel_0.24.1-linux-x86_64.deb
 ADD . /src
 WORKDIR /src
 RUN bazel build -c opt --copt="-O3" //source/exe:envoy-static
+RUN strip /src/bazel-bin/source/exe/envoy-static
 
 FROM alpine
 WORKDIR /app
