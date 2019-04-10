@@ -47,6 +47,7 @@ static_resources:
                 address: service1
                 port_value: 80
   - name: jaeger
+    http_protocol_options: {}
     connect_timeout: 1s
     type: strict_dns
     lb_policy: round_robin
