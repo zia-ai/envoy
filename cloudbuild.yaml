@@ -7,4 +7,4 @@ steps:
 images:
 - 'gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA'
 options:
-  machineType: 'N1_HIGHCPU_64'
+  machineType: 'N1_HIGHCPU_32'
