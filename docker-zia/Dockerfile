@@ -1,12 +1,12 @@
 FROM debian:9 AS build-env
 
 RUN apt-get update
-RUN apt-get install -y pkg-config zip g++ zlib1g-dev unzip python build-essential autoconf ninja-build libtool cmake wget
+RUN apt-get install -y git pkg-config zip g++ zlib1g-dev unzip python build-essential autoconf ninja-build libtool cmake wget
 RUN wget https://github.com/bazelbuild/bazel/releases/download/0.24.1/bazel_0.24.1-linux-x86_64.deb
 RUN apt-get install -y ./bazel_0.24.1-linux-x86_64.deb
 ADD . /src
-RUN cd /src
-RUN bazel build -c opt --copt="-O3"
+WORKDIR /src
+RUN bazel build -c opt --copt="-O3" //source/exe:envoy-static
 
 FROM alpine
 WORKDIR /app
