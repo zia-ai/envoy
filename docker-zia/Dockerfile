@@ -9,7 +9,7 @@ WORKDIR /src
 RUN bazel build -c opt --copt="-O3" //source/exe:envoy-static
 RUN strip /src/bazel-bin/source/exe/envoy-static
 
-FROM alpine
+FROM debian:9
 WORKDIR /app
 COPY --from=build-env /src/bazel-bin/source/exe/envoy-static /app/envoy
 
