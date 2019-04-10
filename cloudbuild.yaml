@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/bazel'
-  args: ['build', '-c opt', '--copt="-O3"', '//source/exe:envoy-static']
+  args: ['build', '-c', 'opt', '--copt="-O3"', '//source/exe:envoy-static']
 - name: 'ubuntu'
   entrypoint: 'bash'
   args:
