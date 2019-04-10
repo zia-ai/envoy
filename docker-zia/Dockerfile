@@ -12,6 +12,3 @@ RUN strip /src/bazel-bin/source/exe/envoy-static
 FROM debian:9
 WORKDIR /app
 COPY --from=build-env /src/bazel-bin/source/exe/envoy-static /app/envoy
-
-# Make sure the root tls certs are present
-RUN apk --update --no-cache add ca-certificates
